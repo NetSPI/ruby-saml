@@ -38,7 +38,7 @@ module OneLogin
       #                          or :matches_request_id that will validate that the response matches the ID of the request,
       #                          or skip the subject confirmation validation with the :skip_subject_confirmation option
       #                          or skip the recipient validation of the subject confirmation element with :skip_recipient_check option
-      def initialize(response, options = {})
+      def initialize(response, options = {:allowed_clock_drift=120})
         raise ArgumentError.new("Response cannot be nil") if response.nil?
 
         @errors = []
